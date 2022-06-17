@@ -12,6 +12,8 @@ public abstract class Car {
 	protected Integer year;
 	
 	protected Double Rent;
+	
+	protected Integer velocity;
 
 	public Car(Color color) {
 		this.color = color;
@@ -75,7 +77,37 @@ public abstract class Car {
 
 	public abstract Double rentACar(Integer days);
 	
-	
+	public void speedUp() {
+		System.out.println("First march");
+		for(velocity = 0; velocity <= 20; velocity++) {
+			System.out.println(velocity + " km");
+				if (velocity >= 20) {
+					System.out.println("\nSecond march");
+					for (velocity = 20; velocity <=40; velocity++) {
+						System.out.println(velocity + " km");
+					}
+						if(velocity >= 40) {
+							System.out.println("\nThird march");
+							for(velocity = 40; velocity <= 60; velocity++) {
+								System.out.println(velocity + " km");
+							}
+								if(velocity >= 60) {
+									System.out.println("\nFourth march");
+									for(velocity = 60; velocity <= 80; velocity++) {
+										System.out.println(velocity + " km");
+								}
+										if(velocity >= 80) {
+											System.out.println("\nFifith march");
+											for(velocity = 80; velocity <= 100; velocity++) {
+												System.out.println(velocity + " km");
+											}
+										}
+							}
+						}
+				}
+				
+		}
+	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
