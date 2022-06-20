@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Scanner;
+
 import color.Enum.Color;
 
 public abstract class Car {
@@ -10,15 +12,16 @@ public abstract class Car {
 	protected String brand;
 	protected String model;
 	protected Integer year;
-	
+
 	protected Double Rent;
-	
+
+	private boolean turnOn;
 	protected Integer velocity;
 
 	public Car(Color color) {
 		this.color = color;
 	}
-	
+
 	public Integer getNumbersOfDoor() {
 		return numbersOfDoor;
 	}
@@ -50,7 +53,7 @@ public abstract class Car {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}
@@ -76,39 +79,53 @@ public abstract class Car {
 	}
 
 	public abstract Double rentACar(Integer days);
-	
+
+	public boolean isCarTurnOn(char option) {
+		if (option == 'n') {
+			turnOn = false;
+		} else if (option == 'y') {
+			turnOn = true;
+		}
+		return turnOn;
+	}
+
 	public void speedUp() {
-		System.out.println("First march");
-		for(velocity = 0; velocity <= 20; velocity++) {
-			System.out.println(velocity + " km");
+		if (turnOn == true) {
+			System.out.println("First march");
+			for (velocity = 0; velocity <= 20; velocity++) {
+				System.out.println(velocity + " km");
 				if (velocity >= 20) {
 					System.out.println("\nSecond march");
-					for (velocity = 20; velocity <=40; velocity++) {
+					for (velocity = 20; velocity <= 40; velocity++) {
 						System.out.println(velocity + " km");
 					}
-						if(velocity >= 40) {
-							System.out.println("\nThird march");
-							for(velocity = 40; velocity <= 60; velocity++) {
+					if (velocity >= 40) {
+						System.out.println("\nThird march");
+						for (velocity = 40; velocity <= 60; velocity++) {
+							System.out.println(velocity + " km");
+						}
+						if (velocity >= 60) {
+							System.out.println("\nFourth march");
+							for (velocity = 60; velocity <= 80; velocity++) {
 								System.out.println(velocity + " km");
 							}
-								if(velocity >= 60) {
-									System.out.println("\nFourth march");
-									for(velocity = 60; velocity <= 80; velocity++) {
-										System.out.println(velocity + " km");
+							if (velocity >= 80) {
+								System.out.println("\nFifith march");
+								for (velocity = 80; velocity <= 100; velocity++) {
+									System.out.println(velocity + " km");
 								}
-										if(velocity >= 80) {
-											System.out.println("\nFifith march");
-											for(velocity = 80; velocity <= 100; velocity++) {
-												System.out.println(velocity + " km");
-											}
-										}
 							}
 						}
+					}
 				}
-				
+
+			}
+		}
+		else {
+			System.out.println("The car is turn off");
 		}
 	}
-	
+
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Especifications: \n");
@@ -121,5 +138,4 @@ public abstract class Car {
 		return sb.toString();
 	}
 
-	
 }

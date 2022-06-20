@@ -65,10 +65,14 @@ public class Program {
 				System.out.print("\nAttendant - Price's car is $100.00 per day.\nHow much days you'd like? ");
 				days = sc.nextInt();
 				car.rentACar(days);
+			break;
+			default:
+				System.out.println("This option doesn't exist, the format must be equals you read");
 			}
 		}
 		System.out.println("\n" + car + "\nYou paid $" + String.format("%.2f%n", car.getRent()) + "\n");
 		System.out.println("Attendant - Congratulations sir, now you can enjoy your new veicule");
+		
 		
 		
 		
